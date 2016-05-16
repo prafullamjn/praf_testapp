@@ -1,10 +1,22 @@
 <html>
   <head>
-    <title>Device Properties Example</title>
+    <title>PhoneGap Application</title>
 
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<style type="text/css">
+.chorous{
+font-family:preeti;
+font-size:15px;color:#333333;
+line-height:19px;padding:10px;
+}
+.chorousru{
+font-family:rukmini;
+font-size:19px;color:#333333;
+line-height:19px;padding:10px;font-weight:bold;
+}
+</style>
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
-
+	var WatchId - null;
     // Wait for device API libraries to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -12,18 +24,46 @@
     // device APIs are available
     //
     function onDeviceReady() {
-        var element = document.getElementById('deviceProperties');
-        element.innerHTML = 'Device Name: '     + device.name     + '<br />' +
-                            'Device Cordova: '  + device.cordova  + '<br />' +
-                            'Device Platform: ' + device.platform + '<br />' +
-                            'Device UUID: '     + device.uuid     + '<br />' +
-                            'Device Model: '    + device.model    + '<br />' +
-                            'Device Version: '  + device.version  + '<br />';
+        startWatch();
     }
-
+	function startWatch(){
+		var option
+	}
     </script>
-  </head>
+
+</head>
   <body>
-    <p id="deviceProperties">Loading device properties...</p>
+  <h1>Nepali Christian Chorus</h1>
+    <p class="chorous" >! <span class="chorousru"> xNn]n"ofx :t'lt–dlxdf</span><br>
+xNn]n"ofx :t'lt–dlxdf ;j{bf o]z" k|e'nfO{ lbG5f}F -@_<br>
+xf === xNn]n"ofx -#_ xf === -xNn]n"ofx_ #<br>
+!= q"m;sf] alnbfgdf /ut axfpg'eof] -@_<br>
+kfknfO{ x6fO{ z'4 u/fO{ xfdLnfO{ arfpg'eof] -@_<br>
+@= pxfFsf] k'g?Tyfgdf cgGt ljho lnO{ cfpg'ef] -@_<br>
+cfh ltdL–xfdLnfO{ oxL ljho lbgnfO{ o]z"hL cfpg'eof] -@_</p>
+	<hr>
+	
+	<p class="chorous" >@ <span class="chorousru"> lhpFbf] 5g\, o]z" lhpFbf] 5g\,</span><br>
+lhpFbf] 5g\, o]z" lhpFbf] 5g\, d]/f] dgdf o]z" lhpFbf] 5g\<br>
+;+s6df d]/f] ;xf/f x'g\, o]z" ;w}F lhpFbf] 5g\ .
+	</p>
+	<hr>
+	<p class="chorous" ># <span class="chorousru"> o]z" ;jf]{Qd gfpF 5</span><br>
+o]z" ;jf]{Qd gfpF 5, zflGtbftf k|tfkL k|e'<br>
+ODdfg'Pn O{Zj/ xfdL;Fu wGo p4f/s lhpFbf] jrg .
+	</p>
+	<hr>
+	<p class="chorous" >$ <span class="chorousru"> xfdL ;a} ldnL</span><br>
+xfdL ;a} ldnL -@_ ufcf}F, ehf}F, k"hf}F v|Li6 o]z"nfO{ -@_<br>
+xfdL ;a} hg ldnL ufcf}F ehf}F k'hf}F v|Li6 o]z"nfO{ -@_<br>
+ufcf}F ehf}F k'hf}F v|Li6 o]z"nfO{ -$_
+	</p>
+	<hr>
+		<p class="chorous" >% <span class="chorousru"> o]z" gfpFsf] ho xf];\</span><br>
+o]z" gfpFsf] ho xf];\ -@_, d]/f] r§fg, d]/f] lsNnf<br>
+dnfO{+ 5'8fpg] d]/f] e/f];f, o]z" gfpFsf] hohosf/ xf];\ .
+	</p>
+	<hr>
+	
   </body>
-</html>
+</html
