@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="user-scalable=no,initial-scale=1, maximum-scale=1,minimum-scale=1, width=device-width" />
+<title>PhoneGap Application</title>
+<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
+<link rel="stylesheet" href="css/css.css" />
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.mobile-1.3.2.min.js"></script>
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript">
+            var fileObject;
+            document.addEventListener("deviceready", onDeviceReady, true);
+            function onDeviceReady() {
+                window.requestFileSystem(LocalFileSystem.PERSISTENT,0, onFileSystemSuccess, onError);
+            }
+            
+            function onFileSystemSuccess(fs) {
+                //Create Files
+                fs.root.getDirectory("someDirectory",
+                { create: true, exclusive: false },
+                null,onError);
+                fs.root.getFile("pgtest.txt",
+                { create: true, exclusive: false },
+                null,onError);
+                var dirReader = fs.root.createReader();
+                // Get a list of all the entries in the directory
+                dirReader.readEntries(success,onError);
+            }
+            
+            //Create List
+            function success(entries) {
+                var i;
+                var objectType;
+                for (i=0; i < entries.length; i++) {
+                    if(entries[i].isDirectory == true) {
+                        objectType = 'Directory';
+                    } else {
+                        objectType = 'File';
+                    }
+                    $('#dirList').append('<li>\n\
+                                                <h3>' + entries[i].name + '</h3>\n\
+                                                <p>' + entries[i].toURI() + '</p>\n\
+                                                <p class="ui-li-aside">Type:<strong>' + objectType + '</strong></p>\n\
+                                                </li>');
+                }
+                $('#dirList').listview("refresh");
+            }
+            
+            //Error
+            function onError(error) {
+                alert("Failed to list directory contents: " + error.code);
+            }
+        </script>
+</head>
+<body class="ui-mobile-viewport ui-overlay-c">
+<!-- Start of first page: #one -->
+<div style="min-height: 608px;" class="ui-page ui-body-c ui-page-active" tabindex="0" data-url="one" data-role="page" id="one">
+  <div role="banner" class="ui-header ui-bar-a" data-role="header">
+  
+    <h1 aria-level="1" role="heading" class="ui-title">Nepali Chorus Songs</h1>
+  </div>
+  <!-- /header -->
+  <div role="main" class="ui-content" data-role="content">
+    <h2>Opening Song</h2>
+    <p><span class="chorousru">(</span> Scale D, Rhythm C</p>
+	<div class="chorous">
+d'lQmnfO{, d'lQmnfO{ u|x0f u/ clxNo}<br>
+hf] 5 o]z"sf] cgdf]n /Qmdf<br>
+o]z"b]lv of] bfg 5 ltd|f]nflu g}, u|x0f u/ d'lQm ljgf8/</div>
+<hr>
+<p><span class="chorousru">!(</span> Scale D, Rhythm C</p>
+	<div class="chorous">
+q"m;}df q"m;}df dnfO{ k/]Yof] Hof]lt d]/f] kfksf] ef/L xl6uf]Ú<br>
+ToxfF ljZjf; u/L d}n] kfPF b[li6 / clxn]sf] hLjg v'zL ef]Ú .</div>
+    <p><a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" data-theme="c" data-wrapperels="span" data-iconshadow="true" data-shadow="true" data-corners="true" href="#two" data-role="button"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Next</span></span></a></p>
+	<p><a class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-c" data-theme="c" data-wrapperels="span" data-iconshadow="true" data-shadow="true" data-corners="true" href="#five" data-role="button"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Offering</span></span></a></p>
+   
+  </div>
+  <!-- /content -->
+  <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+  <div role="contentinfo" class="ui-footer ui-bar-d" data-role="footer" data-theme="d">
+    <h4 aria-level="1" role="heading" class="ui-title">Zion Infotech</h4>
+	
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page one -->
+<!-- Start of second page: #two -->
+<div data-url="two" data-role="page" id="two" data-theme="a">
+  <div data-role="header">
+    <h1>Nepali Chorus Songs</h1>
+  </div>
+  <!-- /header -->
+  <div data-role="content" data-theme="a">
+  
+
+<p><span class="chorousru">&^ </span> Scale G, Rhythm 6/8</p>
+<div class="chorous">
+sf]M v|Li6 d]/f] d'lQmbftf x'g\, pgL x'g\ ldq kfkLsf]<br>
+;bf :t'lt xf];\ k|e'sf], cfb/ dlxdf pg}sf].<br>
+!= o]z" ;+;f/sf] Hof]lt x'g\, o]z" :ju{sf] af6f] x'g\<br>
+o]z" tf/0fxf/ x'g\, kfkLsf] s]jn ;xf/f x'g\ -@_<br>
+@= Tofu] o]z"n] :ju{–;'v, p7fpg kfkLx¿sf b'Mv<br>
+lbP o]z"n] q"m;df k|f0f, u/fpg kfkLx¿sf] qf0f -@_
+</div>
+
+    <p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Prev</a></p>
+    <p><a href="#three" data-direction="reverse" data-role="button" data-theme="b">Next</a></p>
+  </div>
+  <!-- /content -->
+  <div data-role="footer">
+    <h4>Zion Infotech</h4>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page two -->
+
+
+<div data-url="three" data-role="page" id="two" data-theme="a">
+  <div data-role="header">
+    <h1>Nepali Chorus Songs</h1>
+  </div>
+  <!-- /header -->
+  <div data-role="content" data-theme="a">
+  
+
+<p><span class="chorousru">!%* </span> Scale G, Rhythm C</p>
+<div class="chorous">
+!= oxj]sf] nflu hoho u/f}+, cfgGb;fy pgsf] ;]jf u/f}+<br>
+ufpFb} ufpFb} pgsf] ;fd' cfcf}+ oxj] O{Zj/ egL hfgf}+.<br>
+sf]M pgL xfd|f] ;[hgxf/, pgL xfd|f] tf/0fxf/<br>
+pgL xfd|f] kfngxf/, ;'G5g\ pgn] xfd|f] k'sf/.<br>
+@= pgsf] vs{sf xfdL e]8f xf}+, wGojfb ub}{ 9f]sfleq k;f}+,<br>
+:t'lt ub}{ cfFugdf k;f}+, wGo egf}+ pgsf] gfdnfO{.<br>
+#= oxj] dxfg\ k|e' enf] 5g\ pgsf] s?0ff ;bf /xG5,<br>
+pgsf] ;RrfO{ k':tfk':tfdf cd/ of] /xg]5.
+
+</div>
+
+    
+    <p><a href="#two" data-direction="reverse" data-role="button" data-theme="b">Prev</a></p>
+	<p><a href="#four" data-direction="reverse" data-role="button" data-theme="b">Next</a></p>
+  </div>
+  <!-- /content -->
+  <div data-role="footer">
+    <h4>Zion Infotech</h4>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page two -->
+
+<div data-url="four" data-role="page" id="two" data-theme="a">
+  <div data-role="header">
+    <h1>Nepali Chorus Songs</h1>
+  </div>
+  <!-- /header -->
+  <div data-role="content" data-theme="a">
+  
+
+<p><span class="chorousru">@&% </span> Scale C, Rhythm C</p>
+<div class="chorous">
+!= hflGbgF d k/d]Zj/n] k|]d lsg ug'{ef],<br>
+jf v|Li6n] lsg arfP cof]Uo k|f0f d]/f].<br>
+sf]M t/ s;dfly ljZjf; /fv]+, ;f] hfGb5' d / lgZro 5' d<br>
+ls pgnfO{ h] d}n] ;'Dk]+, /fVg]5g\ ;'/Iff;fy.<br>
+@= hflGbgF s;/L arfpg] ljZjf; lbP pgn]<br>
+jf pgsf] jrg kTofpFbf dgdf zflGt kfPF.<br>
+#= hflGbgF s;/L cfTdfn] hu bf]ifL 7x/fpF5g\<br>
+jf jrgåf/f o]z"nfO{ k|s6 u/fpFb5g\.<br>
+$= hflGbgF s] cfOkg]{5 d dg{eGbf cl3<br>
+ls x'G5 dnfO{ b'Mv jf ;'v t[lKt jf ul/aL.<br>
+%= hflGbgF d slxn], sxfF o]z" k]ml/ cfpnfg\<br>
+ls d/]kl5 e]6"Fnf ls e]6"F cfsfzdf.
+
+</div>
+
+    <p><a href="#three" data-direction="reverse" data-role="button" data-theme="b">Prev</a></p>
+    <p><a href="#five" data-direction="reverse" data-role="button" data-theme="b">Next</a></p>
+  </div>
+  <!-- /content -->
+  <div data-role="footer">
+    <h4>Zion Infotech</h4>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page two -->
+
+<div data-url="five" data-role="page" id="two" data-theme="a">
+  <div data-role="header">
+    <h1>Nepali Chorus Songs</h1>
+  </div>
+  <!-- /header -->
+  <div data-role="content" data-theme="a">
+  
+
+<p><span class="chorousru">#%) </span> Scale G, Rhythm C</p>
+<div class="chorous">
+sf]M dg d]/f] lng'xj;\ o]z", tkfO{++n] o;nfO{ agfpg'ef]<br>
+o;df tkfO{++ cfk\mgf] 3/ agfpgf];\ h;sf] nflu of] agfpg'ef].<br>
+!= b'lgofFsf] ;a s'/f lgsfNgf];\, o;nfO{ z'4 kljq ug'{xf];\<br>
+cz'4 d}nf] kfknfO{ wf]O{sg Tof] /utn] hf] axfpg'ef].<br>
+@= ha k9\b5' kljq jrg h;sf] af6f] 5 ;RrfOsf]<br>
+af6f]–;To–hLjg b]vfOsg ljZjf; clg cfzf a9fpg'ef].<br>
+#= w]/} ;fn tkfO{++b]lv lyPF b"/ nfk/jfxLn] g} u/] b"/<br>
+cg'u|x, k|]d, bofsf] j/bfgn] wL/h w/L dnfO{ b]vfpg'ef].<br>
+$= cfTdf z'4 xf];\ wf]O{sg kljq cfTdfsf] alKt:dfn]<br>
+x/ ;do, x/ hUuf ;fIfL lbpFm, h:tf] tkfO{++n] g} l;sfpg'ef].
+
+</div>
+
+    
+    <p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">First</a></p>
+	<p><a href="#four" data-direction="reverse" data-role="button" data-theme="b">Prev</a></p>
+  </div>
+  <!-- /content -->
+  <div data-role="footer">
+    <h4>Zion Infotech</h4>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page two -->
+
+<!-- Start of third page: #popup -->
+<div data-url="popup" data-role="page" id="popup">
+  <div data-role="header" data-theme="e">
+    <h1>Dialog</h1>
+  </div>
+  <!-- /header -->
+  <div data-role="content" data-theme="d">
+    <h2>Popup</h2>
+    <p>I have an id of "popup" on my page container and only look like a dialog because the link to me had a <code>data-rel="dialog"</code> attribute which gives me this inset look and a <code>data-transition="pop"</code> attribute to change the transition to pop. Without this, I'd be styled as a normal page.</p>
+    <p><a href="#one" data-rel="back" data-role="button" data-inline="true" data-icon="back">Back to page "one"</a></p>
+  </div>
+  <!-- /content -->
+  <div data-role="footer">
+    <h4>Page Footer</h4>
+  </div>
+  <!-- /footer -->
+</div>
+<!-- /page popup -->
+<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon ui-icon-loading"></span>
+  <h1>loading</h1>
+</div>
+</body>
+</html>
